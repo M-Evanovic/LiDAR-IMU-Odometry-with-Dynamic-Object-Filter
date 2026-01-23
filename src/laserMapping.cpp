@@ -89,6 +89,8 @@ PointCloudXYZI::Ptr non_ground_body{new PointCloudXYZI()};
 PointCloudXYZI::Ptr dynamic_pc{new PointCloudXYZI()};
 PointCloudXYZI::Ptr static_pc{new PointCloudXYZI()};
 
+int dof_update_interval = -1;
+int interval_count = 0;
 
 pcl::VoxelGrid<PointType> downSizeFilterSurf;
 pcl::VoxelGrid<PointType> downSizeFilterMap;
@@ -116,7 +118,7 @@ geometry_msgs::PoseStamped msg_body_pose;
 shared_ptr<Preprocess> p_pre(new Preprocess());
 shared_ptr<ImuProcess> p_imu(new ImuProcess());
 std::shared_ptr<gs::GroundSeperator<PointType>> ground_seperator = nullptr;
-std::shared_ptr<dof::DynamicObjectFilter<PointType>> do_filter = nullptr;
+std::shared_ptr<dof_lio::DynamicObjectFilter<PointType>> do_filter = nullptr;
 
 void SigHandle(int sig)
 {
@@ -737,9 +739,12 @@ int main(int argc, char** argv)
     ros::NodeHandle nh;
 
     ground_seperator = std::make_shared<gs::GroundSeperator<PointType>>();
-    do_filter = std::make_shared<dof::DynamicObjectFilter<PointType>>();
+    do_filter = std::make_shared<dof_lio::DynamicObjectFilter<PointType>>();
     
     do_filter->Init(nh);
+
+    
+    nh.param<int>("dof/dof_update_interval", dof_update_interval, 2);
 
     nh.param<bool>("publish/path_en",path_en, true);
     nh.param<bool>("publish/scan_publish_en",scan_pub_en, true);
@@ -960,12 +965,22 @@ int main(int argc, char** argv)
             kf.update_iterated_dyn_share_modified(LASER_POINT_COV, solve_H_time);
             state_point = kf.get_x();
 
-            Quatd updated_rot_q(state_point.rot.coeffs()[3], state_point.rot.coeffs()[0], state_point.rot.coeffs()[1], state_point.rot.coeffs()[2]);
-            M3D updated_rot = updated_rot_q.toRotationMatrix();
-            V3D updated_pos(state_point.pos(0), state_point.pos(1), state_point.pos(2));
+            if (interval_count++ > dof_update_interval) {
+                Quatd updated_rot_q(state_point.rot.coeffs()[3],
+                                    state_point.rot.coeffs()[0],
+                                    state_point.rot.coeffs()[1],
+                                    state_point.rot.coeffs()[2]);
+                M3D updated_rot = updated_rot_q.toRotationMatrix();
+                
+                V3D updated_pos(state_point.pos(0),
+                                state_point.pos(1),
+                                state_point.pos(2));
+                
+                // do_filter->UpdateFilter(*feats_undistort, updated_rot, updated_pos);
+                do_filter->UpdateFilter(*ori_feats_undistort, updated_rot, updated_pos);
 
-            // do_filter->UpdateFilter(*feats_undistort, updated_rot, updated_pos);
-            do_filter->UpdateFilter(*ori_feats_undistort, updated_rot, updated_pos);
+                interval_count = 0;
+            }
 
             pos_lid = state_point.pos + state_point.rot * state_point.offset_T_L_I;
             euler_cur = SO3ToEuler(state_point.rot);

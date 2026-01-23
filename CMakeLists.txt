@@ -1,5 +1,5 @@
 cmake_minimum_required(VERSION 2.8.3)
-project(fast_lio)
+project(dof_lio)
 
 SET(CMAKE_BUILD_TYPE "Debug")
 
@@ -88,11 +88,11 @@ catkin_package(
   INCLUDE_DIRS
 )
 
-add_executable(fastlio_mapping src/laserMapping.cpp include/ikd-Tree/ikd_Tree.cpp src/preprocess.cpp)
-target_link_libraries(fastlio_mapping 
+add_executable(doflio_mapping src/laserMapping.cpp include/ikd-Tree/ikd_Tree.cpp src/preprocess.cpp)
+target_link_libraries(doflio_mapping 
                     ${catkin_LIBRARIES} 
                     ${PCL_LIBRARIES} 
                     ${PYTHON_LIBRARIES}
                     ${OpenCV_LIBRARIES}
                     ${cv_bridge_LIBRARIES})
-target_include_directories(fastlio_mapping PRIVATE ${PYTHON_INCLUDE_DIRS})
+target_include_directories(doflio_mapping PRIVATE ${PYTHON_INCLUDE_DIRS})

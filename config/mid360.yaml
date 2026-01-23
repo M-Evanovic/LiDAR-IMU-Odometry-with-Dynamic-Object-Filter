@@ -33,3 +33,27 @@ pcd_save:
     pcd_save_en: true
     interval: -1                 # how many LiDAR frames saved in each pcd file; 
                                  # -1 : all frames will be saved in ONE pcd file, may lead to memory crash when having too much frames.
+
+dof:
+  dof_update_interval: 2
+  flag: 
+    pub_range_img: false
+    use_check: true
+    use_cluster: true
+  detection:
+    FOV_V_UP: 15
+    FOV_V_DOWN: -15
+    FOV_H: 360
+    image_res: 1.0
+    window_size: 5
+    adaptive_coeff: 0.05
+    adaptive_diff: 0.03
+    dyn_ratio: 0.6
+  check:
+    search_radius: 0.1
+  cluster:
+    revolusion: 1.0
+    extend_block: 1
+    extend_range: 0.5
+    dyn_num_threshold: 3
+    dyn_ratio_threshold: 0.05

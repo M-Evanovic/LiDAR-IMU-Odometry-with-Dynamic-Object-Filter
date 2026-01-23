@@ -1,7 +1,7 @@
 common:
     lid_topic:  "/velodyne_points"
-    imu_topic:  "/imu/data"
-    # imu_topic:  "/handsfree/imu"
+    # imu_topic:  "/imu/data"
+    imu_topic:  "/handsfree/imu"
     # lid_topic: "points_raw"
     # imu_topic: "imu_raw"
     time_sync_en: false         # ONLY turn on when external time synchronization is really not possible
@@ -21,7 +21,7 @@ mapping:
     b_acc_cov: 0.0001
     b_gyr_cov: 0.0001
     fov_degree:    180
-    det_range:     200.0
+    det_range:     100.0
     extrinsic_est_en:  false      # true: enable the online estimation of IMU-LiDAR extrinsic,
     extrinsic_T: [ 0, 0, 0.0]
     extrinsic_R: [ 1, 0, 0, 
@@ -40,6 +40,7 @@ pcd_save:
                                  # -1 : all frames will be saved in ONE pcd file, may lead to memory crash when having too much frames.
 
 dof:
+  dof_update_interval: 2
   flag: 
     pub_range_img: false
     use_check: true
@@ -58,6 +59,6 @@ dof:
   cluster:
     revolusion: 1.0
     extend_block: 1
-    extend_range: 0.3
-    dyn_num_threshold: 5
+    extend_range: 0.5
+    dyn_num_threshold: 3
     dyn_ratio_threshold: 0.05

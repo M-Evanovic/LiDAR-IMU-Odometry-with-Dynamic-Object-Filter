@@ -32,7 +32,7 @@ Panels:
   - Class: rviz/Time
     Name: Time
     SyncMode: 0
-    SyncSource: history_scan
+    SyncSource: current_scan
 Preferences:
   PromptSaveOnExit: true
 Toolbars:
@@ -97,7 +97,7 @@ Visualization Manager:
           Use Fixed Frame: true
           Use rainbow: true
           Value: true
-        - Alpha: 0.10000000149011612
+        - Alpha: 0.20000000298023224
           Autocompute Intensity Bounds: true
           Autocompute Value Bounds:
             Max Value: 15
@@ -108,7 +108,7 @@ Visualization Manager:
           Class: rviz/PointCloud2
           Color: 255; 255; 255
           Color Transformer: Intensity
-          Decay Time: 10000
+          Decay Time: 3
           Enabled: true
           Invert Rainbow: true
           Max Color: 255; 255; 255
@@ -117,7 +117,7 @@ Visualization Manager:
           Position Transformer: XYZ
           Queue Size: 100000
           Selectable: true
-          Size (Pixels): 1
+          Size (Pixels): 2
           Size (m): 0.009999999776482582
           Style: Points
           Topic: /cloud_registered
@@ -235,7 +235,7 @@ Visualization Manager:
   Views:
     Current:
       Class: rviz/XYOrbit
-      Distance: 34.367889404296875
+      Distance: 75.77091979980469
       Enable Stereo Rendering:
         Stereo Eye Separation: 0.05999999865889549
         Stereo Focal Distance: 1
@@ -243,17 +243,17 @@ Visualization Manager:
         Value: false
       Field of View: 0.7853981852531433
       Focal Point:
-        X: -1.014087200164795
-        Y: 2.941621780395508
+        X: -3.586848258972168
+        Y: 0.5184590816497803
         Z: 0
       Focal Shape Fixed Size: true
       Focal Shape Size: 0.05000000074505806
       Invert Z Axis: false
       Name: Current View
       Near Clip Distance: 0.009999999776482582
-      Pitch: 0.6040070056915283
+      Pitch: 1.5647963285446167
       Target Frame: body
-      Yaw: 1.452552318572998
+      Yaw: 3.1075546741485596
     Saved: ~
 Window Geometry:
   Displays:

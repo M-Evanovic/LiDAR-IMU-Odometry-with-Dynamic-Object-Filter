@@ -1,5 +1,5 @@
-#ifndef _DYN_OBJ_FILTER_H_
-#define _DYN_OBJ_FILTER_H_
+#ifndef DYN_OBJ_FILTER_H
+#define DYN_OBJ_FILTER_H
 
 #include <iostream>
 #include <functional>
@@ -24,7 +24,7 @@
 #include "common_lib.h"
 #include "dyn_obj_filter/filter_utils.hpp"
 
-namespace dof {
+namespace dof_lio {
 template <typename PointT=PointType>
 class DynamicObjectFilter {
 public:
@@ -500,6 +500,6 @@ void DynamicObjectFilter<PointT>::UpdateFilter(const pcl::PointCloud<PointT> &cu
     }
 }
 
-} // namespace dof
+} // namespace dof_lio
 
 #endif

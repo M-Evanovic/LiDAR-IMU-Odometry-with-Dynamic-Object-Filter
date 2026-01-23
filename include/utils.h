@@ -104,6 +104,6 @@ class Timer {
     static std::map<std::string, TimerRecord> records_;
 };
 
-}  // namespace lio
+}  // namespace utils
 
 #endif

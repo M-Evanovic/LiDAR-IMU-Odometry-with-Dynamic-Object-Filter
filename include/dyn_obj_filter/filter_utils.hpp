@@ -1,5 +1,5 @@
-#ifndef _DOF_UTILS_
-#define _DOF_UTILS_
+#ifndef DOF_UTILS
+#define DOF_UTILS
 
 #include <iostream>
 #include <functional>
@@ -11,7 +11,7 @@
 #include "common_lib.h"
 #include "dyn_obj_filter/tsl/robin_map.h"
 
-namespace dof {
+namespace dof_lio {
 
 # define M_PI 3.14159265358979323846
 
@@ -102,6 +102,6 @@ struct VoxelHash {
 
 typedef tsl::robin_map<Voxel, VoxelBlock, VoxelHash> VoxelHashMap;
 
-}   // namespace dof
+}   // namespace dof_lio
 
 #endif
