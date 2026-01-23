@@ -161,13 +161,13 @@ struct StatesGroup
 };
 
 template<typename T>
-T rad2deg(T radians)
+inline T rad2deg(T radians)
 {
   return radians * 180.0 / PI_M;
 }
 
 template<typename T>
-T deg2rad(T degrees)
+inline T deg2rad(T degrees)
 {
   return degrees * PI_M / 180.0;
 }

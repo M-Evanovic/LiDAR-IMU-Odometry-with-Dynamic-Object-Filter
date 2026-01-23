@@ -55,7 +55,7 @@ public:
         }
     }
 
-    bool SearchDynNeighbor(const PointType pt, const int idx, const double search_radius) {
+    bool SearchDynNeighbor(const PointType pt, const int idx, std::vector<int> &idx_lable, const double search_radius) {
         for (int i = 0; i < dyn_points_num; i++) {
             double distance = CalculateDistance2(pt, dyn_pts[i]);
             if (distance < search_radius * search_radius && idx != idx_dyn_pt[i]) {
