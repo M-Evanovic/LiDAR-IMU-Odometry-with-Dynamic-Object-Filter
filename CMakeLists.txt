@@ -1,5 +1,5 @@
 cmake_minimum_required(VERSION 2.8.3)
-project(dof_lio)
+project(lio-ldof)
 
 SET(CMAKE_BUILD_TYPE "Debug")
 
@@ -88,8 +88,8 @@ catkin_package(
   INCLUDE_DIRS
 )
 
-add_executable(doflio_mapping src/laserMapping.cpp include/ikd-Tree/ikd_Tree.cpp src/preprocess.cpp)
-target_link_libraries(doflio_mapping 
+add_executable(lio-ldof_mapping src/laserMapping.cpp include/ikd-Tree/ikd_Tree.cpp src/preprocess.cpp)
+target_link_libraries(lio-ldof_mapping 
                     ${catkin_LIBRARIES} 
                     ${PCL_LIBRARIES} 
                     ${PYTHON_LIBRARIES}
