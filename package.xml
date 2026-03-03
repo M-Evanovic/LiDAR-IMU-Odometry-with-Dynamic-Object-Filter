@@ -1,20 +1,17 @@
 <?xml version="1.0"?>
 <package>
-  <name>dof_lio</name>
+  <name>lio-ldof</name>
   <version>0.0.0</version>
 
   <description>
-    This is a modified version of LOAM which is original algorithm
-    is described in the following paper:
-    J. Zhang and S. Singh. LOAM: Lidar Odometry and Mapping in Real-time.
-      Robotics: Science and Systems Conference (RSS). Berkeley, CA, July 2014.
+    LiDAR-IMU Odometry with Dynamic Object Filter
   </description>
 
-  <maintainer email="dev@livoxtech.com">claydergc</maintainer>
+  <maintainer email="anthor@email.com">claydergc</maintainer>
 
   <license>BSD</license>
 
-  <author email="zhangji@cmu.edu">Ji Zhang</author>
+  <author email="anthor@email.com">Ji Zhang</author>
   
   <buildtool_depend>catkin</buildtool_depend>
   <build_depend>geometry_msgs</build_depend>
