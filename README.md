@@ -13,7 +13,7 @@
 ## Start
 Launch the node:  
 ```
-roslaunch dof-lio mapping_yourdevice.launch
+roslaunch lio_ldof mapping_yourdevice.launch
 ```
 and then play your rosbag:
 ```
