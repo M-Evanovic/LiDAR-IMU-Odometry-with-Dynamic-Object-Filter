@@ -1,17 +1,17 @@
 <?xml version="1.0"?>
 <package>
-  <name>lio-ldof</name>
+  <name>lio_ldof</name>
   <version>0.0.0</version>
 
   <description>
     LiDAR-IMU Odometry with Dynamic Object Filter
   </description>
 
-  <maintainer email="anthor@email.com">claydergc</maintainer>
+  <maintainer email="author@email.com">author</maintainer>
 
   <license>BSD</license>
 
-  <author email="anthor@email.com">Ji Zhang</author>
+  <author email="anthor@email.com">author</author>
   
   <buildtool_depend>catkin</buildtool_depend>
   <build_depend>geometry_msgs</build_depend>
