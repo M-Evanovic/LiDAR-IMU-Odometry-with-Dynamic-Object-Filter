@@ -12,6 +12,9 @@
 3. 融合思路：
 在获得当前先验位姿后进行动态物体滤除处理，再进行点云配准，然后滤波更新状态和滤除器滑窗更新。
 
+## Function
+重要模块和函数的介绍都放在[notice.md](https://github.com/M-Evanovic/lio-ldof/blob/main/notice.md)。
+
 ## Compile
 把package下载后  
 ```
