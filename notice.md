@@ -1,6 +1,5 @@
 代码实现主要在/include部分，在/src/li_odometry.cc的```void LIOdometry::Run()```中调用。  
 ## 1. 地面分割
-（知道就行，不用看）  
 实现地面分割，在/include/ground_seperator.hpp   
 /include/li_odometry.h中定义  
 ```
@@ -20,7 +19,6 @@ void LIOdometry::ObsModel(state_ikfom &s, esekfom::dyn_share_datastruct<double> 
 ```
 
 ## 2. 哈希表
-（知道就行，不用看）  
 实现哈希表，在/include/tsl     
 /include/dyn_obj_filter.hpp中  
 ```
@@ -30,8 +28,7 @@ typedef tsl::robin_map<Voxel, VoxelBlock, VoxelHash> VoxelHashMap;
 **VoxelBlock**:值  
 **VoxelHash**:哈希映射函数
 
-## 3. 动态物体滤除
-（重点）  
+## 3. 动态物体滤除  
 实现动态物体滤除，在/include/dyn_obj_filter.hpp
 ### 3.1. 可见性检测
 将当前点云转成距离图像  
